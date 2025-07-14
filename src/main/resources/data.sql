@@ -2,9 +2,9 @@
   
   
   INSERT INTO Descricao (valor,	dataHora,estabelecimento,nsu,codigoAutorizacao,	status)  VALUES
-  ('50', '01/05/2021 18:30:00','PetShop Mundo cão','1234567890','147258369','AUTORIZADO'),
-  ('40', '01/05/2022 15:20:00','PetShop Mundo cão','1234567890','123456789','NEGADO'),
-  ('100', '06/06/2022 14:30:00','PetShop Mundo cão','1234567890','456789123','AUTORIZADO');
+  ('50', '14/07/2025 18:30:00','Mercadão das Frutas','1234567890','147258369','AUTORIZADO'),
+  ('40', '10/07/2025 15:20:00','Mercadão das Frutas','1234567890','123456789','NEGADO'),
+  ('100', '30/06/2025 14:30:00','Mercadão das Frutas','1234567890','456789123','AUTORIZADO');
   
   
   INSERT INTO FormaPagamento (tipo,parcelas) VALUES
