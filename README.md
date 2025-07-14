@@ -1,75 +1,65 @@
-# ToolsChallenge
+# 💰 Desafio: Banco Digital com Java e Padrões GoF
 
-Projeto desenvolvido para o Processo Seletivo Tools.
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-Utilizei SpringBoot e o banco de dados H2 (em memória - ver /src/main/resources).
+Este projeto foi desenvolvido como parte de um desafio da [Digital Innovation One](https://www.dio.me/) com foco na implementação utilizando **Java** e **Padrões de Projeto GoF (Gang of Four)**.
 
-Requisitos implementados, inclusive com o uso do padrão de projeto Singleton ("Gang of Four").
+## 🎯 Objetivo
 
-Aqui, cabe uma explicação: ao desenvolver a operação Pagamento, quis fazer uma forma de autorização, que, mesmo de uma forma simples, ajude a aproximar o projeto da vida real.
+Demonstrar o uso prático da **Programação Orientada a Objetos (POO)** e aplicar os principais padrões de projeto para uma arquitetura mais robusta, reutilizável e legível.
 
-A forma de autorização encontrada foi gerar um boolean randômico - retornou true, autoriza o pagamento; false, não autoriza.
+## 🛠️ Tecnologias Utilizadas
 
-Porém, isso poderia atrapalhar o teste pelo postman, podendo gerar vários false em sequencia.
+- Java 17+
+- Maven
+- IDE (IntelliJ IDEA / Eclipse)
 
-A solução foi implementar um contador pra limitar o false a uma ocorrência. Esse contador é controlado em uma classe Singleton (/src/main/java/com/example/pagamento/validador/SimuladorAutorizacaoPagamento.java).
+## 🧱 Padrões GoF Aplicados
 
-Endpoints para teste pelo Postman:
+- **Singleton**: Utilizado para garantir uma única instância da classe `Banco`.
+- **Strategy**: Implementado para estratégias de exibição e ações em contas.
+- **Factory Method**: Para abstração da criação de contas digitais (`ContaCorrente`, `ContaPoupanca`).
 
-1)
+## 🚀 Como Executar
 
-GET localhost:8080/api/pagamento/consultaTodos
+Clone o repositório e execute com Maven:
 
-2)
+```bash
+git clone https://github.com/robsonosbor/desafio-gof-dio.git
+cd desafio-gof-dio
+mvn compile
+mvn exec:java
+```
 
-GET localhost:8080/api/pagamento/consultaPorId?id=100023901
-
-3)
-
-POST localhost:8080/api/pagamento/solicitaPagamento
-
-a)
-
-{
-	"transacao": {
-		"cartao": "777******1234",
-		"descricao": {
-			"valor": "50",
-			"dataHora": "01/05/2021 18:30:00",
-			"estabelecimento": "Supermercado"
-			},
-		"formaPagamento": {
-			"tipo": "AVISTA",
-			"parcelas": "1"
-		}
-	}
-}
-
-b) Obs: o body abaixo é uma variação, para a funcionalidade validaSeJaAutorizada() - /src/main/java/com/example/pagamento/service/PagamentoService.java
-
-{
-		"transacao": {
-			"cartao": "333******1234",
-			"descricao": {
-				"valor": "50",
-				"dataHora": "01/05/2021 18:30:00",
-				"estabelecimento": "PetShop Mundo cão",
-				"nsu": "1234567890",
-				"codigoAutorizacao": "147258369",
-				"status": "AUTORIZADO"
-			},
-			"formaPagamento": {
-				"tipo": "AVISTA",
-				"parcelas": "1"
-			}
-		}
-	}
-
-
-4)
-
-GET localhost:8080/api/estorno/estornarTransacao?id=100023901
-
-5)
-
-localhost:8080/api/estorno/consultaPorId?id=100023901
+## 🛠️ Estrutura do Projeto
+```plaintext
+desafio-gof-dio/
+├── README.md
+├── LICENSE
+├── pom.xml
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/
+│   │   │       └── robsonosbor/
+│   │   │           └── bancodigital/
+│   │   │               ├── model/
+│   │   │               │   ├── Conta.java
+│   │   │               │   ├── ContaCorrente.java
+│   │   │               │   ├── ContaPoupanca.java
+│   │   │               │   └── Cliente.java
+│   │   │               ├── service/
+│   │   │               │   └── Banco.java
+│   │   │               ├── strategy/
+│   │   │               │   ├── OperacaoStrategy.java
+│   │   │               │   └── DepositoStrategy.java
+│   │   │               └── Main.java
+│   └── test/
+│       └── java/
+│           └── com/
+│               └── robsonosbor/
+│                   └── bancodigital/
+│                       └── model/
+│                           └── ContaTest.java
+```
