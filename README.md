@@ -31,35 +31,3 @@ cd desafio-gof-dio
 mvn compile
 mvn exec:java
 ```
-
-## 🛠️ Estrutura do Projeto
-```plaintext
-desafio-gof-dio/
-├── README.md
-├── LICENSE
-├── pom.xml
-├── src/
-│   ├── main/
-│   │   ├── java/
-│   │   │   └── com/
-│   │   │       └── robsonosbor/
-│   │   │           └── bancodigital/
-│   │   │               ├── model/
-│   │   │               │   ├── Conta.java
-│   │   │               │   ├── ContaCorrente.java
-│   │   │               │   ├── ContaPoupanca.java
-│   │   │               │   └── Cliente.java
-│   │   │               ├── service/
-│   │   │               │   └── Banco.java
-│   │   │               ├── strategy/
-│   │   │               │   ├── OperacaoStrategy.java
-│   │   │               │   └── DepositoStrategy.java
-│   │   │               └── Main.java
-│   └── test/
-│       └── java/
-│           └── com/
-│               └── robsonosbor/
-│                   └── bancodigital/
-│                       └── model/
-│                           └── ContaTest.java
-```
